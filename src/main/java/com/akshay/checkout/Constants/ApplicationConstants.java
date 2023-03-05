@@ -17,4 +17,8 @@ public class ApplicationConstants {
 
     public static final String CHECKOUT_MONGO_TEMPLATE_BEAN_NAME = "checkout-mongo";
 
+    public static final String BASE_URI = "/api/v1/checkout";
+
+    public static final String ABANDON_NOTIFICATION_END_POINT = "/send-abandon-notification/";
+
 }
