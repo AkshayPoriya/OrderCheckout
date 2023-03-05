@@ -1,6 +1,7 @@
 package com.akshay.checkout.Models;
 
 import com.akshay.checkout.Constants.ApplicationConstants;
+import com.akshay.checkout.Constants.MongoKeyConstants;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Builder;
@@ -16,19 +17,19 @@ import java.time.LocalDateTime;
 @Document(collection = ApplicationConstants.ORDER_COLLECTION_NAME)
 public class OrderModel {
 
-    @Field(value = "checkout_id", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.ORDER.CHECKOUT_ID_KEY, write = Field.Write.ALWAYS)
     private String checkoutId;
 
-    @Field(value = "order_id", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.ORDER.ORDER_ID_KEY, write = Field.Write.ALWAYS)
     private String orderId;
 
-    @Field(value = "created_at", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.ORDER.CREATED_AT_KEY, write = Field.Write.ALWAYS)
     private LocalDateTime createdAt;
 
-    @Field(value = "order_status_url", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.ORDER.ORDER_STATUS_URL_KEY, write = Field.Write.ALWAYS)
     private String orderStatusUrl;
 
-    @Field(value = "tracking_url", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.ORDER.TRACKING_URL_KEY, write = Field.Write.ALWAYS)
     private String trackingUrl;
 
     // Other details

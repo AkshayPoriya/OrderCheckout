@@ -1,6 +1,7 @@
 package com.akshay.checkout.Models;
 
 import com.akshay.checkout.Constants.ApplicationConstants;
+import com.akshay.checkout.Constants.MongoKeyConstants;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Builder;
@@ -17,53 +18,53 @@ import java.util.List;
 @Document(collection = ApplicationConstants.CHECKOUT_COLLECTION_NAME)
 public class CheckoutModel {
 
-    @Field(value = "checkout_id", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.CHECKOUT.CHECKOUT_ID_KEY, write = Field.Write.ALWAYS)
     private String checkoutId;
 
-//    @Field(value = "order_id", write = Field.Write.ALWAYS)
+//    @Field(value = MongoKeyConstants.CHECKOUT.ORDER_ID_KEY, write = Field.Write.ALWAYS)
 //    private String orderId;
 
-    @Field(value = "created_at", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.CHECKOUT.CREATED_AT_KEY, write = Field.Write.ALWAYS)
     private LocalDateTime createdAt;
 
-    @Field(value = "updated_at", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.CHECKOUT.UPDATED_AT_KEY, write = Field.Write.ALWAYS)
     private LocalDateTime updatedAt;
 
-    @Field(value = "is_checkout_completed", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.CHECKOUT.IS_CHECKOUT_COMPLETE_KEY, write = Field.Write.ALWAYS)
     private Boolean isCheckoutCompleted;
 
-    @Field(value = "customer_email", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.CHECKOUT.CUSTOMER_EMAIL_KEY, write = Field.Write.ALWAYS)
     private String customerEmail;
 
-    @Field(value = "customer_first_name", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.CHECKOUT.CUSTOMER_FIRST_NAME_KEY, write = Field.Write.ALWAYS)
     private String customerFirstName;
 
-    @Field(value = "customer_last_name", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.CHECKOUT.CUSTOMER_LAST_NAME_KEY, write = Field.Write.ALWAYS)
     private String customerLastName;
 
-    @Field(value = "customer_phone_no", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.CHECKOUT.CUSTOMER_PHONE_NUMBER_KEY, write = Field.Write.ALWAYS)
     private String customerPhoneNo;
 
-    @Field(value = "checkout_url", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.CHECKOUT.CHECKOUT_URL_KEY, write = Field.Write.ALWAYS)
     private String checkoutUrl;
 
-    @Field(value = "abandon_notification_details", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.CHECKOUT.ABANDON_NOTIFICATION_DETAILS_KEY, write = Field.Write.ALWAYS)
     private List<NotificationDetail> abandonNotificationDetails;
 
-    @Field(value = "next_notification_time", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.CHECKOUT.NEXT_NOTIFICATION_TIME_KEY, write = Field.Write.ALWAYS)
     private LocalDateTime nextNotificationTime;
 
-    @Field(value = "next_notification_index", write = Field.Write.ALWAYS)
+    @Field(value = MongoKeyConstants.CHECKOUT.NEXT_NOTIFICATION_INDEX_KEY, write = Field.Write.ALWAYS)
     private Integer nextNotificationIndex;
 
     @Data
     @Builder
     public static class NotificationDetail {
 
-        @Field(value = "notification_time", write = Field.Write.ALWAYS)
+        @Field(value = MongoKeyConstants.CHECKOUT.NOTIFICATION_TIME_KEY, write = Field.Write.ALWAYS)
         private LocalDateTime notificationTime;
 
-        @Field(value = "notification_medium", write = Field.Write.ALWAYS)
+        @Field(value = MongoKeyConstants.CHECKOUT.NOTIFICATION_MEDIUM_KEY, write = Field.Write.ALWAYS)
         private List<String> notificationMedium;
     }
 
