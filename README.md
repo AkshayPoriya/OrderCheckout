@@ -1,6 +1,10 @@
 # OrderCheckout
 A service to handle abandon cart notification
 
+**Architecture Diagram**
+![OrderCheckout](https://user-images.githubusercontent.com/53296002/222985300-818da339-de8f-4187-890e-6e11bda1cf03.png)
+
+
 
 **Order Create curl**
 ```
@@ -43,10 +47,9 @@ curl --location 'http://localhost:8080/api/v1/webhook/abandon-checkout/Shopify/'
 curl --location --request POST 'http://localhost:8080/api/v1/checkout/send-abandon-notification/' \
 --header 'Content-Type: text/plain'
 ```
+**checkout document**
+<img width="500" alt="checkout-collection" src="https://user-images.githubusercontent.com/53296002/222985367-808d096c-b213-4d38-a186-3b76d0cc5327.png">
 
-![OrderCheckout](https://user-images.githubusercontent.com/53296002/222985300-818da339-de8f-4187-890e-6e11bda1cf03.png)
-
-<img width="837" alt="checkout-collection" src="https://user-images.githubusercontent.com/53296002/222985367-808d096c-b213-4d38-a186-3b76d0cc5327.png">
-
-<img width="812" alt="order-collection" src="https://user-images.githubusercontent.com/53296002/222985378-3e2bf693-70f3-473e-8a63-885ee6040fc8.png">
+**order document**
+<img width="500" alt="order-collection" src="https://user-images.githubusercontent.com/53296002/222985378-3e2bf693-70f3-473e-8a63-885ee6040fc8.png">
 
