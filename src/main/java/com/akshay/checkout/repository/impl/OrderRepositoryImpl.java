@@ -1,6 +1,7 @@
 package com.akshay.checkout.repository.impl;
 
 import com.akshay.checkout.Constants.ApplicationConstants;
+import com.akshay.checkout.Constants.MongoKeyConstants;
 import com.akshay.checkout.Models.CheckoutModel;
 import com.akshay.checkout.Models.OrderModel;
 import com.akshay.checkout.repository.OrderRepository;
@@ -30,7 +31,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     private boolean isOrderExist(OrderModel orderModel){
-        Query query = Query.query(Criteria.where("order_id").is(orderModel.getOrderId()));
+        Query query = Query.query(Criteria.where(MongoKeyConstants.ORDER.ORDER_ID_KEY).is(orderModel.getOrderId()));
         return mongoTemplate.exists(query, ApplicationConstants.ORDER_COLLECTION_NAME);
     }
 }
