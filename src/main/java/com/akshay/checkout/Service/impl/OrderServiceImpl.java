@@ -37,8 +37,10 @@ public class OrderServiceImpl implements OrderService {
         }
         LocalDateTime currTime = LocalDateTime.now();
         orderModel.setCreatedAt(currTime);
-        checkoutRepository.setCheckoutComplete(orderModel.getCheckoutId());
-        orderRepository.saveOrderDetails(orderModel);
+        boolean isNewOrder =  orderRepository.saveOrderDetails(orderModel);
+        if(isNewOrder){
+            checkoutRepository.setCheckoutComplete(orderModel.getCheckoutId());
+        }
     }
 
     private OrderModel getOrderPojo(String partner, String data){

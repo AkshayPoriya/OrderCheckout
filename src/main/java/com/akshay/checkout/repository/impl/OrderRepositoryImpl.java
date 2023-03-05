@@ -22,12 +22,13 @@ public class OrderRepositoryImpl implements OrderRepository {
     private CommonLogger logger;
 
     @Override
-    public void saveOrderDetails(OrderModel orderModel) {
+    public boolean saveOrderDetails(OrderModel orderModel) {
         if(isOrderExist(orderModel)){
             logger.logInfo(String.format("Duplicate order received for order-id %s", orderModel.getOrderId()));
-            return;
+            return false;
         }
         mongoTemplate.save(orderModel);
+        return true;
     }
 
     private boolean isOrderExist(OrderModel orderModel){

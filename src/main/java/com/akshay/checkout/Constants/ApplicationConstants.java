@@ -21,4 +21,6 @@ public class ApplicationConstants {
 
     public static final String ABANDON_NOTIFICATION_END_POINT = "/send-abandon-notification/";
 
+    public static final long ABANDON_NOTIFICATION_CRON_FREQUENCY = 5*60*1000;//1*60*1000;
+
 }

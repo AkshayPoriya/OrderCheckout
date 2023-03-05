@@ -11,6 +11,7 @@ import com.akshay.connect.service.CommunicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -68,7 +69,9 @@ public class CheckoutServiceImpl implements CheckoutService {
     }
 
     @Override
+    @Scheduled(fixedRate = ApplicationConstants.ABANDON_NOTIFICATION_CRON_FREQUENCY)
     public void SendAbandonNotification() {
+        logger.logInfo(String.format("SendAbandonNotification task started at %s", LocalDateTime.now()));
         List<CheckoutModel> checkoutModelList = checkoutRepository.getAbandonCheckoutOrdersForNotifications();
         for(CheckoutModel checkoutModel: checkoutModelList){
             String message = String.format("Hi %s, We noticed you left something in your cart, click %s to complete your order. Ignore if already done.",
@@ -106,6 +109,7 @@ public class CheckoutServiceImpl implements CheckoutService {
             }
             checkoutRepository.updateAbandonCheckoutNotificationDetails(checkoutModel);
         }
+        logger.logInfo(String.format("SendAbandonNotification task completed at %s", LocalDateTime.now()));
     }
 
     private CheckoutModel getCheckoutPojo(String partner, String data){
